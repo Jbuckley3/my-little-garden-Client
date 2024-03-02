@@ -35,7 +35,7 @@ const SignOut = (props) => {
                     <h2>Are you sure you want to sign out?</h2>
                     <small>We hate to see you go...</small><br/>
                     <ButtonGroup>
-                        <Button variant='danger' onClick={onSignOut}>
+                        <Button className='m-2' variant='danger' onClick={onSignOut}>
                             Sign Out
                         </Button>
                         <Button variant='warning' onClick={onCancel}>
