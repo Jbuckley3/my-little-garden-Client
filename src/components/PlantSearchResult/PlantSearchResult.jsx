@@ -11,12 +11,13 @@ export default function PlantSearchResult({plantList}) {
                         <li key={idx}>
                             <Link to={`/${p.common_name}`}>{p.common_name}</Link>
                         </li>    
-                        ))}
+                    ))}
                 </ul>
                 ):(
                 <div>Loading</div>
                 )
             }
+            <div>test</div>
         </div>
     );
 
