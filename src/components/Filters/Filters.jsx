@@ -28,8 +28,6 @@ export default function Filters({ setPlantList }) {
         };
         const apiBaseUrl = 'https://perenual.com/api';
         const plantResult = await axios.get(`${apiBaseUrl}/species-list`, { params });
-        console.log(plantResult);
-        // const updatedPlantList = '' //Call API here
         setPlantList(plantResult.data.data);
     }
 
@@ -39,7 +37,7 @@ export default function Filters({ setPlantList }) {
                 <label>Search</label>
                 <input type="text" name="search" value={formData.search} onChange={handleChange} required />
                 <label>Test</label>
-                <input type="text" name="test" value={formData.test} onChange={handleChange} required />
+                <input type="text" name="test" value={formData.test} onChange={handleChange} />
                 <button type="submit">FILTER</button>
             </form>
         </div>

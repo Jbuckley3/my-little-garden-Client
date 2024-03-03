@@ -1,22 +1,22 @@
-import { useEffect } from "react";
-export default function PlantSearchResult(plantList) {
+import { Link } from "react-router-dom";
 
-useEffect(()=>{
-
-
-},[plantList])
+export default function PlantSearchResult({plantList}) {
 
     return (
 
         <div>
-            <h1>Search result</h1>
-            {plantList.length && plantList.map((plant) => {
-        
+            {plantList.length ? (
                 <ul>
-                    <li>{plant.common_name}</li>
-                    <li>{plant.id}</li>
-                </ul>;
-            })}
+                    {plantList.map((p, idx) => (
+                        <li key={idx}>
+                            <Link to={`/${p.common_name}`}>{p.common_name}</Link>
+                        </li>    
+                        ))}
+                </ul>
+                ):(
+                <div>Loading</div>
+                )
+            }
         </div>
     );
 
