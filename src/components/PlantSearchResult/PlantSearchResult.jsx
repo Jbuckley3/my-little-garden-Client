@@ -17,7 +17,6 @@ export default function PlantSearchResult({plantList}) {
                 <div>Loading</div>
                 )
             }
-            <div>test</div>
         </div>
     );
 
