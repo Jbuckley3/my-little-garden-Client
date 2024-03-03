@@ -1,13 +1,13 @@
-import axios from 'axios'
-import './Filters.css'
-import { useState } from 'react'
-const API_KEY = process.env.REACT_APP_API_KEY
+import axios from 'axios';
+import './Filters.css';
+import { useState } from 'react';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
-export default function Filters({setPlantList}) {
+export default function Filters({ setPlantList }) {
     const [formData, setFormData] = useState({
         search: '',
         test: '',
-    })
+    });
 
     // useEffect({
 
@@ -26,11 +26,11 @@ export default function Filters({setPlantList}) {
             "q": formData.search,
             "key": API_KEY,
         };
-        const apiBaseUrl = 'https://perenual.com/api'
-        const res = await axios.get(`${apiBaseUrl}/species-list`, { params });
-        console.log(res)
+        const apiBaseUrl = 'https://perenual.com/api';
+        const plantResult = await axios.get(`${apiBaseUrl}/species-list`, { params });
+        console.log(plantResult);
         // const updatedPlantList = '' //Call API here
-        // setPlantList(updatedPlantList)
+        setPlantList(plantResult.data.data);
     }
 
     return (
@@ -43,5 +43,5 @@ export default function Filters({setPlantList}) {
                 <button type="submit">FILTER</button>
             </form>
         </div>
-    )
+    );
 }
