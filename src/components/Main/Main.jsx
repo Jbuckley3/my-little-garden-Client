@@ -6,36 +6,45 @@ import SignIn from '../../components/auth/SignIn';
 import SignOut from '../../components/auth/SignOut';
 import ChangePassword from '../../components/auth/ChangePassword';
 import PlantDetail from '../../components/PlantDetail/PlantDetail';
-export default function Main(msgAlert, user, setUser, clearUser) {
-    return (
-        <Routes>
-            <Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-            <Route path='/:plantId' element={<PlantDetail />} />
-            <Route
-                path='/sign-up'
-                element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-            />
-            <Route
-                path='/sign-in'
-                element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-            />
-            <Route
-                path='/sign-out'
-                element={
-                    <RequireAuth user={user}>
-                        <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-                    </RequireAuth>
-                }
-            />
-            <Route
-                path='/change-password'
-                element={
-                    <RequireAuth user={user}>
-                        <ChangePassword msgAlert={msgAlert} user={user} />
-                    </RequireAuth>}
-            />
-        </Routes>
+import MyPlants from '../../components/MyPlants/MyPlants';
 
-
-    );
+export default function Main({ msgAlert, user, setUser, clearUser }) {
+  return (
+    <Routes>
+      <Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+      <Route path='/:plantId' element={<PlantDetail />} />
+      <Route
+        path='/sign-up'
+        element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+      />
+      <Route
+        path='/sign-in'
+        element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+      />
+      <Route
+        path='/sign-out'
+        element={
+          <RequireAuth user={user}>
+            <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path='/change-password'
+        element={
+          <RequireAuth user={user}>
+            <ChangePassword msgAlert={msgAlert} user={user} />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path='/my-plants'
+        element={
+          <RequireAuth user={user}>
+            <MyPlants msgAlert={msgAlert} user={user} />
+          </RequireAuth>
+        }
+      />
+    </Routes>
+  );
 }
