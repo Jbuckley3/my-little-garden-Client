@@ -35,7 +35,5 @@ export default function Main({msgAlert, user, setUser, clearUser}) {
                     </RequireAuth>}
             />
         </Routes>
-
-
     );
 }
