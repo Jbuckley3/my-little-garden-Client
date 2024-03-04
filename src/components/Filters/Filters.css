@@ -1,6 +1,23 @@
+<<<<<<< HEAD
+.filter-form {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 30px;
+}
+
+.radio {
+    display: flex;
+}
+
+.radio-button {
+    display: flex;
+}
+=======
 .plant-form-filter {
   display: flex;
   flex-direction: row;
   background-color: lightblue;
   align-items: end;
 }
+>>>>>>> 51dcf8f45e422949003e688cb9928124449a65b7
