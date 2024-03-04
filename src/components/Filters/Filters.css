@@ -1,0 +1,6 @@
+.plant-form-filter {
+  display: flex;
+  flex-direction: row;
+  background-color: lightblue;
+  align-items: end;
+}
