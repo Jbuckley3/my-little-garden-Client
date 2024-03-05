@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 export default function PlantSearchResult({ plantList }) {
 
     return (
-
         <div>
             {plantList.length && (
                 <ul>
@@ -13,8 +12,7 @@ export default function PlantSearchResult({ plantList }) {
                         </li>
                     ))}
                 </ul>
-            )
-            }
+            )}
         </div>
     );
 

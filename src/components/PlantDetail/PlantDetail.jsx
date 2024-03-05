@@ -10,7 +10,6 @@ export default function PlantDetail({user}) {
 
     useEffect(() => {
         const plantDetail = async () => {
-            console.log('test')
             const detail = await axios.get(`https://perenual.com/api/species/details/${plantName.plantId}?key=${API_KEY}`)
             setCurPlant(detail.data)
         }
