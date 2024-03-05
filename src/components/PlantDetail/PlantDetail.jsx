@@ -4,7 +4,7 @@ import './PlantDetail.css'
 import { useParams } from 'react-router-dom'
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export default function PlantDetail() {
+export default function PlantDetail({user}) {
     const plantName = useParams();
     const [curPlant, setCurPlant] = useState(undefined)
 
@@ -16,6 +16,18 @@ export default function PlantDetail() {
         plantDetail().catch(console.error)
     }, [])
 
+    const addToFavorites = () => {
+        console.log(user)
+        // Send a request to add the plant to favorites
+        axios.post(`http://localhost:8000/add-to-favorites/${user._id}/${curPlant.id}`)
+            .then(response => {
+                console.log('Plant added to favorites:', response.data);
+            })
+            .catch(error => {
+                console.error('Error adding plant to favorites:', error);
+            });
+    };
+
     return (
         <div className='main'>
             {curPlant &&
@@ -26,6 +38,9 @@ export default function PlantDetail() {
                             <h1>{curPlant.common_name}</h1>
                             <p>{curPlant.description}</p>
                         </div>
+                    </div>
+                    <div>
+                        <button onClick={addToFavorites}>Add to Favorites</button>
                     </div>
                     <div className='care-guide'>
                         <h1>Care Guide</h1>
@@ -46,5 +61,5 @@ export default function PlantDetail() {
                 </>
             }
         </div>
-    )
+    );
 }
