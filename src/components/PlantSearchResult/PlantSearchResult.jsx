@@ -9,7 +9,7 @@ export default function PlantSearchResult({ plantList }) {
                 <ul>
                     {plantList.map((p, idx) => (
                         <li key={idx}>
-                            <Link to={`/${p.common_name}`}>{p.common_name}</Link>
+                            <Link to={`/${p.id}`}>{p.common_name}</Link>
                         </li>
                     ))}
                 </ul>
