@@ -1,0 +1,29 @@
+.main {
+    margin-top: 10vh;
+}
+
+.plant-detail-body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.body-text {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    font-size: 1vmax;
+}
+
+.care-guide {
+    margin: 5vh 3.6vw;
+    padding: 2vh 2vw;
+    width: 90vw;
+    background-color: rgb(217, 217, 217);
+    border-radius: 1.5vmax;
+}
+
+.care-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1vmax;
+}
