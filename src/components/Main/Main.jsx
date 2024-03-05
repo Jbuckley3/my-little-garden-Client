@@ -48,3 +48,5 @@ export default function Main({ msgAlert, user, setUser, clearUser }) {
     </Routes>
   );
 }
+
+console.log('test')
