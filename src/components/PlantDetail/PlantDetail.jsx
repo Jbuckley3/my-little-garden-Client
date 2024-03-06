@@ -60,6 +60,7 @@ export default function PlantDetail({user}) {
                     </div>
                 </>
             }
+        
         </div>
     );
 }
