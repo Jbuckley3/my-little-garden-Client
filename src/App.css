@@ -1,0 +1,58 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 800px;
+  color: #0f5132;
+
+  padding: 5px;
+  font-size: larger;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px #ffffff;
+}
+/* Custom CSS for Bootstrap form */
+
+.filter-form {
+  background-color: #d1e7dd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.col-2,
+.col-3,
+.col-4,
+.col-12 {
+  margin-bottom: 15px;
+}
+
+.btn {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #997404 !important;
+  border-color: #ffc107 !important;
+  padding: 10px !important;
+  text-wrap: wrap;
+}
+
+.btn-primary:hover {
+  background-color: #fff3cd !important;
+  border-color: #198754 !important;
+  color: #0f5132 !important;
+}
+
+@media (max-width: 576px) {
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-12 {
+    margin-bottom: 10px;
+  }
+}
