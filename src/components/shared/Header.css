@@ -1,0 +1,22 @@
+.navbar {
+    background-color: #0f5132;
+}
+
+.navbar-contents {
+    display: flex;
+    flex-direction: column;
+    height: 12vh;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.icon {
+    max-height: 2vmax;
+    margin-left: 1vmax;
+}
+
+.top {
+    display: flex;
+    width: 98vw;
+    justify-content: space-between;
+}

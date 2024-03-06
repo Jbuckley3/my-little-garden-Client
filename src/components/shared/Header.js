@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import './Header.css'
 
 const linkStyle = {
   color: 'white',
@@ -54,23 +55,45 @@ const alwaysOptions = (
   </>
 );
 
+function handleSearch(evt) {
+  evt.preventDefault();
+  console.log('submitted')
+}
+
+function handleZip(evt) {
+  evt.preventDefault();
+}
+
 const Header = ({ user }) => (
-  <Navbar bg='primary' variant='dark' expand='md'>
-    <Navbar.Brand className='m-2'>
-      <Link to='/' style={linkStyle}>
-        My Little Garden
-      </Link>
-    </Navbar.Brand>
-    <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    <Navbar.Collapse id='basic-navbar-nav'>
-      <Nav className='ml-auto'>
-        {user && (
-          <span className='navbar-text mr-2'>Welcome, {user.email}</span>
-        )}
-        {alwaysOptions}
-        {user ? authenticatedOptions : unauthenticatedOptions}
-      </Nav>
-    </Navbar.Collapse>
+  <Navbar expand='md' className='navbar'>
+    <div className='navbar-contents'>
+      <Navbar.Brand className='m-2'>
+        <div className='top'>
+          <div>
+            <Link to='/' style={linkStyle}>
+              My Little Garden
+            </Link>
+            <img src='https://i.imgur.com/GzFQWN6.png' alt='' className='icon' />
+          </div>
+          <form onSubmit={handleSearch}>
+            <input type="text" name="search" placeholder='Search' />
+          </form>
+          <form onSubmit={handleZip}>
+            <input type="text" name="zip" placeholder='ZIP Code' />
+          </form>
+        </div>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls='basic-navbar-nav' />
+      <Navbar.Collapse id='basic-navbar-nav'>
+        <Nav className='ml-auto'>
+          {user && (
+            <span className='navbar-text mr-2'>Welcome, {user.email}</span>
+          )}
+          {alwaysOptions}
+          {user ? authenticatedOptions : unauthenticatedOptions}
+        </Nav>
+      </Navbar.Collapse>
+    </div>
   </Navbar>
 );
 
