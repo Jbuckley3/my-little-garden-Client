@@ -24,7 +24,7 @@ export default function Filters({ setPlantList }) {
 
     async function handleSearch(evt) {
         evt.preventDefault();
-        console.log(API_KEY)
+        console.log(API_KEY);
         const params = {
             "q": formData.search,
             "order": formData.order,
@@ -127,10 +127,10 @@ export default function Filters({ setPlantList }) {
                 </Row>
                 <Row>
                     <Col className='col-2'>
-                        <Button variant="secondary" type="reset">Reset</Button>
+                        <Button type="reset">Reset</Button>
                     </Col>
                     <Col className='col-2'>
-                        <Button variant="primary" type="submit">FILTER</Button>
+                        <Button className="btn-primary" type="submit">FILTER</Button>
                     </Col>
                 </Row>
             </Form>
