@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert';
 import Header from './components/shared/Header';
 import Main from './components/Main/Main';
+import './App.css';
 
 
 const App = () => {

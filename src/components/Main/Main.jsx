@@ -6,7 +6,7 @@ import SignIn from '../../components/auth/SignIn';
 import SignOut from '../../components/auth/SignOut';
 import ChangePassword from '../../components/auth/ChangePassword';
 import PlantDetail from '../../components/PlantDetail/PlantDetail';
-import MyPlants from '../MyPlants/MyPlants'
+import MyPlants from '../MyPlants/MyPlants';
 
 export default function Main({ msgAlert, user, setUser, clearUser }) {
   return (

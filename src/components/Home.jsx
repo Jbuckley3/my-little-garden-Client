@@ -9,7 +9,6 @@ const Home = (props) => {
 
 	return (
 		<>
-			<h2>Home Page</h2>
 			<Filters setPlantList={setPlantList} />
 			<PlantSearchResult plantList={plantList} />
 		</>
