@@ -9,7 +9,6 @@ const MyPlants = ({ user }) => {
     const fetchFavorites = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/favorites/${user._id}`);
-        console.log(response.data[0])
         setFavorites(response.data);
       } catch (error) {
         console.error('Error fetching favorites:', error);
@@ -17,7 +16,7 @@ const MyPlants = ({ user }) => {
     };
 
     fetchFavorites();
-  }, [user]);
+  }, []);
 
   return (
     <div className='favorites-list'>
@@ -25,7 +24,7 @@ const MyPlants = ({ user }) => {
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {favorites.length > 0 ? (
           favorites.map((favorite , idx) => (
-            <PlantCard key={idx} plant={favorite[0]} />
+            <PlantCard key={idx} plant={favorite} />
           ))
         ) : (
           <p>No favorites yet.</p>

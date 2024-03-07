@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const PlantCard = ({ plant }) => {
   return (
     <Card style={{ width: '30%', margin: 5 }}>
-     
-     <Card.Img variant="top" src={plant.image_url} alt={plant.common_name} />
+    
+      <Card.Img variant="top" src={plant.image_url} alt={plant.common_name} />
       
       <Card.Header className="centered-text">{plant.common_name}</Card.Header>
       <Card.Body>
@@ -19,7 +19,7 @@ const PlantCard = ({ plant }) => {
         <Card.Text className="centered-text">
           <strong>Cycle:</strong> {plant.cycle}
         </Card.Text>
-        <Link to={`/plant-details/${plant.id}`}>
+        <Link to={`/${plant.plantId}`}>
           <Button variant="primary">Details</Button>
         </Link>
       </Card.Body>

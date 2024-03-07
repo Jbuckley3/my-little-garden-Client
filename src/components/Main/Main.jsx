@@ -10,50 +10,50 @@ import MyPlants from '../MyPlants/MyPlants';
 import PlantQuiz from '../../components/PlantQuiz/PlantQuiz'
 
 export default function Main({ msgAlert, user, setUser, clearUser }) {
-  return (
-    <Routes>
-      <Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
-      <Route path='/:plantId' element={<PlantDetail user={user} />} />
-      <Route
-        path='/sign-up'
-        element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-      />
-      <Route
-        path='/sign-in'
-        element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-      />
-      <Route
-        path='/sign-out'
-        element={
-          <RequireAuth user={user}>
-            <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path='/change-password'
-        element={
-          <RequireAuth user={user}>
-            <ChangePassword msgAlert={msgAlert} user={user} />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path='/my-plants'
-        element={
-          <RequireAuth user={user}>
-            <MyPlants msgAlert={msgAlert} user={user} />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path='/plant-quiz'
-        element={
-            <PlantQuiz msgAlert={msgAlert} user={user} />
-        }
-      />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+            <Route path='/:plantId' element={<PlantDetail user={user} />} />
+            <Route
+            path='/sign-up'
+            element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+            />
+            <Route
+            path='/sign-in'
+            element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+            />
+            <Route
+            path='/sign-out'
+            element={
+                <RequireAuth user={user}>
+                    <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+                </RequireAuth>
+            }
+            />
+            <Route
+            path='/change-password'
+            element={
+                <RequireAuth user={user}>
+                    <ChangePassword msgAlert={msgAlert} user={user} />
+                </RequireAuth>
+            }
+            />
+            <Route
+            path='/my-plants'
+            element={
+                <RequireAuth user={user}>
+                <MyPlants msgAlert={msgAlert} user={user} />
+                </RequireAuth>
+            }
+            />
+            <Route
+            path='/plant-quiz'
+            element={
+                <PlantQuiz msgAlert={msgAlert} user={user} />
+            }
+            />
+        </Routes>
+    );
 }
 
 console.log('test')

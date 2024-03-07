@@ -20,3 +20,7 @@
     width: 98vw;
     justify-content: space-between;
 }
+
+#username {
+    color: white;
+}

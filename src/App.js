@@ -14,10 +14,7 @@ const App = () => {
 	const [user, setUser] = useState(null);
 	const [msgAlerts, setMsgAlerts] = useState([]);
 
-	console.log('user in app', user);
-	console.log('message alerts', msgAlerts);
 	const clearUser = () => {
-		console.log('clear user ran');
 		setUser(null);
 	};
 
@@ -39,7 +36,7 @@ const App = () => {
 	return (
 		<Fragment>
 			<Header user={user} />
-			<Main msgAlert={msgAlert} user={user} setUser={setUser} clearUse={clearUser} />
+			<Main msgAlert={msgAlert} user={user} setUser={setUser} clearUser={clearUser} />
 			{msgAlerts.map((msgAlert) => (
 				<AutoDismissAlert
 					key={msgAlert.id}
