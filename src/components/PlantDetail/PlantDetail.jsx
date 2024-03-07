@@ -28,6 +28,7 @@ export default function PlantDetail({user}) {
             }
         }
         plantDetail().catch(console.error)
+        
         }, [])
 
     useEffect(() => {
@@ -49,7 +50,7 @@ export default function PlantDetail({user}) {
             .catch(error => {
                 console.error('Error adding plant to favorites:', error);
             });
-        user.favorites.push(curPlant)
+        user.favorites.push({ plantId : curPlant.id })
         setFavorited(true)
     };
 
