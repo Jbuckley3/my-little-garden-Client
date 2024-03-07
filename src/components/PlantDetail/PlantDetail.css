@@ -32,11 +32,11 @@
     display: flex;
 }
 
-.empty-heart {
+.heart {
     margin-left: 1vw;
     margin-top: 8px;
 }
 
-.empty-heart:hover {
+.heart:hover {
     cursor: pointer;
 }

@@ -24,7 +24,6 @@ export default function Filters({ setPlantList }) {
 
     async function handleSearch(evt) {
         evt.preventDefault();
-        console.log(API_KEY);
         const params = {
             "q": formData.search,
             "order": formData.order,

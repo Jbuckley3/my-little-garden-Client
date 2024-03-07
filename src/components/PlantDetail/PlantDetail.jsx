@@ -7,18 +7,30 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 export default function PlantDetail({user}) {
     const plantName = useParams();
     const [curPlant, setCurPlant] = useState(undefined)
+    const [favorited, setFavorited] = useState(false)
 
     useEffect(() => {
         const plantDetail = async () => {
             const detail = await axios.get(`https://perenual.com/api/species/details/${plantName.plantId}?key=${API_KEY}`)
+            // const checkFav = await axios.get('http://localhost:8000/checkFav')
             setCurPlant(detail.data)
         }
         plantDetail().catch(console.error)
-    }, [])
+        }, [])
+
+    useEffect(() => {
+        if (curPlant && user) {
+            user.favorites.forEach((f) => {
+                if (curPlant.id === parseInt(f.plantId)) {
+                    setFavorited(true)
+                }
+            })
+        }
+    }, [curPlant])
 
     const addToFavorites = () => {
         // Send a request to add the plant to favorites
-        axios.post(`http://localhost:8000/add-to-favorites/${user._id}/${curPlant.common_name}/${curPlant.cycle}/${curPlant.watering}/${curPlant.sunlight}/${encodeURIComponent(curPlant.default_image.medium_url)}`)
+        axios.post(`http://localhost:8000/add-to-favorites/${user._id}/${curPlant.common_name}/${curPlant.cycle}/${curPlant.watering}/${curPlant.sunlight}/${encodeURIComponent(curPlant.default_image.medium_url)}/${curPlant.id}`)
             .then(response => {
                 console.log('Plant added to favorites:', response.data);
             })
@@ -37,9 +49,15 @@ export default function PlantDetail({user}) {
                             <div className='text-head'>
                                 <h1>{curPlant.common_name}</h1>
                                 {user && (
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="empty-heart" viewBox="0 0 16 16" onClick={addToFavorites}>
-                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                    </svg>
+                                    favorited ?
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="green" class="heart" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                        </svg>
+                                        :
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="heart" viewBox="0 0 16 16" onClick={addToFavorites}>
+                                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                        </svg>
+                                    
                                 )}
                             </div>
                             <p>{curPlant.description}</p>
