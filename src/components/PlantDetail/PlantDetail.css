@@ -27,3 +27,16 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1vmax;
 }
+
+.text-head {
+    display: flex;
+}
+
+.empty-heart {
+    margin-left: 1vw;
+    margin-top: 8px;
+}
+
+.empty-heart:hover {
+    cursor: pointer;
+}
