@@ -62,7 +62,6 @@ const alwaysOptions = (
 
 function handleSearch(evt) {
   evt.preventDefault();
-  console.log('submitted')
 }
 
 function handleZip(evt) {
@@ -75,7 +74,7 @@ const Header = ({ user }) => (
       <Navbar.Brand className='m-2'>
         <div className='top'>
           <div>
-            <Link to='/' style={linkStyle}>
+            <Link to='/' style={linkStyle} id='sitename'>
               My Little Garden
             </Link>
             <img src='https://i.imgur.com/GzFQWN6.png' alt='' className='icon' />
