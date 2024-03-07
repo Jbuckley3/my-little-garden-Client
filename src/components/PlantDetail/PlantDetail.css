@@ -18,8 +18,6 @@
     margin: 5vh 3.6vw;
     padding: 2vh 2vw;
     width: 90vw;
-    background-color: rgb(217, 217, 217);
-    border-radius: 1.5vmax;
 }
 
 .care-guide-grid {
@@ -39,4 +37,21 @@
 
 .heart:hover {
     cursor: pointer;
+}
+
+.care-card {
+    background-color: #d1e7dd;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.care-guide-secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1vmax;
+    margin-top: 1vmax;
 }

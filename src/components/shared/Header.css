@@ -13,14 +13,20 @@
 .icon {
     max-height: 2vmax;
     margin-left: 1vmax;
+    margin-top: -1.5vmax;
 }
 
 .top {
     display: flex;
-    width: 98vw;
+    width: 95vw;
     justify-content: space-between;
 }
 
 #username {
     color: white;
+}
+
+#sitename {
+    font-size: 27px;
+    font-weight: bold;
 }
