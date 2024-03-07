@@ -5,9 +5,10 @@
 .navbar-contents {
     display: flex;
     flex-direction: column;
-    height: 12vh;
+    align-items: center; 
     justify-content: space-between;
     padding: 10px;
+    height: 100%; 
 }
 
 .icon {
@@ -18,7 +19,7 @@
 
 .top {
     display: flex;
-    width: 95vw;
+    width: 100%; 
     justify-content: space-between;
 }
 
@@ -29,4 +30,11 @@
 #sitename {
     font-size: 27px;
     font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .navbar-contents {
+        flex-direction: row;
+        align-items: center; 
+    }
 }
