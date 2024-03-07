@@ -7,6 +7,7 @@ import SignOut from '../../components/auth/SignOut';
 import ChangePassword from '../../components/auth/ChangePassword';
 import PlantDetail from '../../components/PlantDetail/PlantDetail';
 import MyPlants from '../MyPlants/MyPlants';
+import PlantQuiz from '../../components/PlantQuiz/PlantQuiz'
 
 export default function Main({ msgAlert, user, setUser, clearUser }) {
   return (
@@ -43,6 +44,12 @@ export default function Main({ msgAlert, user, setUser, clearUser }) {
           <RequireAuth user={user}>
             <MyPlants msgAlert={msgAlert} user={user} />
           </RequireAuth>
+        }
+      />
+      <Route
+        path='/plant-quiz'
+        element={
+            <PlantQuiz msgAlert={msgAlert} user={user} />
         }
       />
     </Routes>

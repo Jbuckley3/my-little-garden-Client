@@ -52,6 +52,11 @@ const alwaysOptions = (
         Home
       </Link>
     </Nav.Item>
+    <Nav.Item className='m-2'>
+      <Link to='/plant-quiz' style={linkStyle}>
+        Plant Quiz
+      </Link>
+    </Nav.Item>
   </>
 );
 
