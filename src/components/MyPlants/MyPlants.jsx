@@ -1,6 +1,6 @@
-// MyPlants.jsx
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import PlantCard from '../PlantCard/PlantCard';
 
 const MyPlants = ({ user }) => {
   const [favorites, setFavorites] = useState([]);
@@ -9,6 +9,7 @@ const MyPlants = ({ user }) => {
     const fetchFavorites = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/favorites/${user._id}`);
+        console.log(response.data[0])
         setFavorites(response.data);
       } catch (error) {
         console.error('Error fetching favorites:', error);
@@ -21,15 +22,15 @@ const MyPlants = ({ user }) => {
   return (
     <div className='favorites-list'>
       <h2>Your Favorites:</h2>
-      <ul>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {favorites.length > 0 ? (
-          favorites.map((favorite) => (
-            <li key={favorite.id}>{favorite.common_name}</li>
+          favorites.map((favorite , idx) => (
+            <PlantCard key={idx} plant={favorite[0]} />
           ))
         ) : (
-          <li>No favorites yet.</li>
+          <p>No favorites yet.</p>
         )}
-      </ul>
+      </div>
     </div>
   );
 };
