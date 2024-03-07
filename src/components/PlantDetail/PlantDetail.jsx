@@ -18,7 +18,7 @@ export default function PlantDetail({user}) {
 
     const addToFavorites = () => {
         // Send a request to add the plant to favorites
-        axios.post(`http://localhost:8000/add-to-favorites/${user._id}/${curPlant.id}`)
+        axios.post(`http://localhost:8000/add-to-favorites/${user._id}/${curPlant.common_name}/${curPlant.cycle}/${curPlant.watering}/${curPlant.sunlight}/${encodeURIComponent(curPlant.default_image.medium_url)}`)
             .then(response => {
                 console.log('Plant added to favorites:', response.data);
             })
